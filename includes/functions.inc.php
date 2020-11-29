@@ -31,7 +31,7 @@ function pwdMismatch($pwd,$pwdRepeat){
 }
 
 function emailExists($conn,$email){
-    $sql = "SELECT * FROM klienci WHERE klienciEmail=?;";
+    $sql = "SELECT * FROM clients WHERE clientEmail=?;";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
         header("location: ../signup.php?error=stmtfailed");
@@ -54,7 +54,7 @@ function emailExists($conn,$email){
 }
 
 function createClient($conn,$fname,$lname,$email,$pwd){
-    $sql = "INSERT INTO klienci (klienciFname,klienciLname,klienciEmail,klienciPwd) VALUES (?,?,?,?);";
+    $sql = "INSERT INTO clients (clientFname,clientLname,clientEmail,clientPwd) VALUES (?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
         header("location: ../signup.php?error=stmtfailed");
@@ -89,7 +89,7 @@ function loginUser($conn,$email,$pwd){
         exit();
     }
 
-    $pwdHashed = $emailExists["klienciPwd"];
+    $pwdHashed = $emailExists["clientPwd"];
     $checkPwd = password_verify($pwd,$pwdHashed);
 
     if($checkPwd === false){
@@ -97,9 +97,9 @@ function loginUser($conn,$email,$pwd){
         exit();
     }elseif ($checkPwd === true){
         session_start();
-        $_SESSION["userid"] = $emailExists["klienciID"];
-        $_SESSION["username"] = $emailExists["klienciFname"];
-        $_SESSION["useremail"] = $emailExists["klienciEmail"];
+        $_SESSION["userid"] = $emailExists["clientID"];
+        $_SESSION["username"] = $emailExists["clientFname"];
+        $_SESSION["useremail"] = $emailExists["clientEmail"];
         header("location: ../index.php");
         exit();
     }

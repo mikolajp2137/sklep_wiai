@@ -3,7 +3,7 @@
 $serverName = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
-$dbName = "sklepw";
+$dbName = "shop_database_wiai";
 
 $conn = mysqli_connect($serverName,$dbUsername,$dbPassword,$dbName);
 

@@ -24,60 +24,25 @@ include_once 'header.php';
                             </div>
                         </div>
                     </div>
-                    <div class="col mb-4">
-                        <div class="card">
-                            <img src="images/richelieu.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4">
-                        <div class="card">
-                            <img src="images/example4k.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4">
-                        <div class="card">
-                            <img src="images/richelieu.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4">
-                        <div class="card">
-                            <img src="images/richelieu.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4">
-                        <div class="card">
-                            <img src="images/richelieu.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4">
-                        <div class="card">
-                            <img src="images/richelieu.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    $sql = "SELECT * FROM ships JOIN class ON (ships.shipClass=class.classID) JOIN types ON (ships.shipType=types.typeID);";
+                    $results = mysqli_query($conn,$sql);
+                    $resultCheck = mysqli_num_rows($results);
+
+                    if($resultCheck>0){
+                        while ($row = mysqli_fetch_assoc($results)){
+                            echo "<div class=\"col mb-4\">";
+                            echo "<div class=\"card\">";
+                            echo "<img src=".$row['shipImage']." class=\"card-img-top\" alt=\"...\">";
+                            echo "<div class=\"card-body\">";
+                            echo "<h5 class=\"card-title\">".$row['shipName']."</h5>";
+                            echo "<p class=\"card-text\">klasa okrętu: ".$row['className']."</p>";
+                            echo "<p class=\"card-text\">typ okrętu: ".$row['typeName']."</p>";
+                            echo "<p class=\"card-text\">cena: ".$row['shipPrice']."zł</p>";
+                            echo "</div></div></div>";
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
