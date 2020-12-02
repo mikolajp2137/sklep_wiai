@@ -19,7 +19,7 @@ include_once 'header.php';
             }
             ?>
 
-            <form action="includes/login.inc.php" method="post" class="login-box ">
+            <form action="includes/login.inc.php" method="post" class="login-box">
                 <h3>Zaloguj się</h3>
                 <div class="form-group">
                     <label for="exampleInputEmail1">email</label>

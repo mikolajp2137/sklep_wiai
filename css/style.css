@@ -80,6 +80,12 @@ form input:focus{
     background-color: #002654;
     outline: none;
 }
+.search-box{
+    background-color: #002654;
+    color: whitesmoke;
+    padding: 30px;
+    width: 100%;
+}
 
 
 .pushNav{
