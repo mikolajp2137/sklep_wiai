@@ -4,6 +4,7 @@ html {
 }
 body {
     margin-bottom: 60px; /* Margin bottom by footer height */
+    font-family: 'Ubuntu', sans-serif;
 }
 .footer {
     position: absolute;
@@ -14,6 +15,12 @@ body {
     background-color: #002654;
     color: #6B819C;
     text-align: center;
+}
+.ffnf-red{
+    color: #800020 !important;
+}
+.ffnf-blue{
+    color: #002654 !important;
 }
 
 
@@ -93,4 +100,10 @@ form input:focus{
 }
 .pushNavLogReg{
     padding-top: 60px;
+}
+
+
+.slider{
+    height: 340px;
+    width: 100%;
 }

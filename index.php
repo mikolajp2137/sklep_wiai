@@ -22,25 +22,7 @@ require "includes/db.inc.php";
             <div class="col col-lg-3 col-sm-12">
                 <h5>Filtr produktów</h5>
                 <hr>
-                <h6 class="text-info">Klasa</h6>
-                <ul class="list-group">
-                    <?php
-                    $sql = "SELECT DISTINCT ships.shipClass ,class.className FROM ships JOIN class ON (ships.shipClass=class.classID);";
-                    $results = mysqli_query($conn,$sql);
-
-                    while ($row = mysqli_fetch_assoc($results)){
-                    ?>
-                    <li class="list-group-item">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input product_check" value="<?= $row['shipClass']; ?>" id="shipClassI"><?php echo $row['className']; ?>
-                            </label>
-                        </div>
-                    </li>
-                    <?php } ?>
-                </ul>
-
-                <h6 class="text-info">Typ</h6>
+                <h6 class="text-info ffnf-blue">Typ</h6>
                 <ul class="list-group">
                     <?php
                     $sql = "SELECT DISTINCT ships.shipType, types.typeName FROM ships JOIN types ON (ships.shipType=types.typeID);";
@@ -55,6 +37,23 @@ require "includes/db.inc.php";
                                 </label>
                             </div>
                         </li>
+                    <?php } ?>
+                </ul>
+                <h6 class="text-info ffnf-blue">Klasa</h6>
+                <ul class="list-group">
+                    <?php
+                    $sql = "SELECT DISTINCT ships.shipClass ,class.className FROM ships JOIN class ON (ships.shipClass=class.classID);";
+                    $results = mysqli_query($conn,$sql);
+
+                    while ($row = mysqli_fetch_assoc($results)){
+                    ?>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input product_check" value="<?= $row['shipClass']; ?>" id="shipClassI"><?php echo $row['className']; ?>
+                            </label>
+                        </div>
+                    </li>
                     <?php } ?>
                 </ul>
             </div>
@@ -73,7 +72,7 @@ require "includes/db.inc.php";
                                 <div class="card">
                                     <img src="<?= $row['shipImage'] ?>" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title"><?= $row['shipName'] ?></h5>
+                                        <a href="product.php?shipID=<?= $row['shipID'] ?>"><h5 class="card-title"><?= $row['shipName'] ?></h5></a>
                                         <p class="card-text">klasa okrętu: <?= $row['className'] ?></p>
                                         <p class="card-text">typ okrętu: <?= $row['typeName'] ?></p>
                                         <p class="card-text">cena: <?= number_format($row['shipPrice']) ?>zł</p>
