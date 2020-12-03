@@ -56,6 +56,7 @@ require "includes/db.inc.php";
                     </li>
                     <?php } ?>
                 </ul>
+                <div class="pushNav"></div>
             </div>
 
             <div class="col col-lg-9 col-sm-12">
@@ -72,7 +73,7 @@ require "includes/db.inc.php";
                                 <div class="card">
                                     <img src="<?= $row['shipImage'] ?>" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <a href="product.php?shipID=<?= $row['shipID'] ?>"><h5 class="card-title"><?= $row['shipName'] ?></h5></a>
+                                        <a href="product.php?shipID=<?= $row['shipID'] ?>" class="link-black"><h5 class="card-title"><?= $row['shipName'] ?></h5></a>
                                         <p class="card-text">klasa okrętu: <?= $row['className'] ?></p>
                                         <p class="card-text">typ okrętu: <?= $row['typeName'] ?></p>
                                         <p class="card-text">cena: <?= number_format($row['shipPrice']) ?>zł</p>

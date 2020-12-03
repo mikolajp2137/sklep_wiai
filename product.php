@@ -57,7 +57,7 @@ include 'includes/db.inc.php';
                             <div class="pushNav"></div>
                             <h4>cena: '.$row['shipPrice'].'zł</h4>
                             <div class="pushNav"></div>
-                            <button type="submit" name="submit" class="btn btn-outline-danger ml-auto">dodaj do koszyka</button>
+                            <button type="submit" name="submit" class="btn btn-outline-danger ml-auto" style="width: 300px">dodaj do koszyka</button>
                         </div>
                     </div>
                     <div class="pushNavLogReg"></div>

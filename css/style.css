@@ -32,6 +32,13 @@ body {
 .link:hover{
     color: #ce1126 !important;
 }
+.link-black{
+    text-decoration: none;
+    color: 	black;
+}
+.link-black:hover{
+    color: #ce1126 !important;
+}
 
 
 #navbar{

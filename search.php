@@ -32,10 +32,10 @@
                                         <p class="card-text">klasa okrętu: '.$row['className'].'</p>
                                         <p class="card-text">typ okrętu: '.$row['typeName'].'</p>
                                         <p class="card-text">cena: '.number_format($row['shipPrice']).'zł</p>
-                                        <div class="text-center"><a href="#" class="btn btn-outline-danger">dodaj do koszyka</div>
+                                        <div class="text-center"><a href="#" class="btn btn-outline-danger">dodaj do koszyka</a></div>
                                     </div>
                                 </div>
-                            </div></a>';
+                            </div>';
                         }
                     }else{
                         echo "<h5>brak wyników spełniających warunki wyszukiwania</h5>";
