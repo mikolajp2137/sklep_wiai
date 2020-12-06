@@ -10,16 +10,18 @@ require_once 'includes/product-crud.inc.php';
     <div class="row">
         <div class="col col-lg-3 col-sm-12">
             <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action active bg-ffnf-blue">Produkty</button>
-                <button type="button" class="list-group-item list-group-item-action">Klasy i kategorie produktów</button>
-                <button type="button" class="list-group-item list-group-item-action">Klienci</button>
-                <?php
-                if (isset($_SESSION["employeeUID"])){
-                    if($_SESSION["employeeUID"]=='admin'){
-                        echo "<button type=\"button\" class=\"list-group-item list-group-item-action\">Pracownicy</button>";
+                <form action="includes/redirect-adm.inc.php" method="post">
+                    <button type="submit" class="list-group-item list-group-item-action active bg-ffnf-blue" name="products-adm">Produkty</button>
+                    <button type="submit" class="list-group-item list-group-item-action" name="cat-class-adm">Klasy i kategorie produktów</button>
+                    <button type="submit" class="list-group-item list-group-item-action" name="clients-adm">Klienci</button>
+                    <?php
+                    if (isset($_SESSION["employeeUID"])){
+                        if($_SESSION["employeeUID"]=='admin'){
+                            echo "<button type=\"submit\" class=\"list-group-item list-group-item-action\" name=\"employees-adm\">Pracownicy</button>";
+                        }
                     }
-                }
-                ?>
+                    ?>
+                </form>
             </div>
         </div>
 
@@ -37,7 +39,7 @@ require_once 'includes/product-crud.inc.php';
                     <label>Klasa</label>
                     <select class="form-control" name="class">
                         <?php
-                        $sql = "SELECT DISTINCT ships.shipClass ,class.className FROM ships JOIN class ON (ships.shipClass=class.classID);";
+                        $sql = "SELECT * FROM class";
                         $results = mysqli_query($conn,$sql);
 
                         while ($row = mysqli_fetch_assoc($results)){
@@ -45,7 +47,7 @@ require_once 'includes/product-crud.inc.php';
                             <li class="list-group-item">
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <option value="<?= $row['shipClass'] ?>" <?php if($shipClass==$row['shipClass']){ echo ' selected="selected"';} ?>><?= $row['className'] ?></option>
+                                        <option value="<?= $row['classID'] ?>" <?php if($shipClass==$row['classID']){ echo ' selected="selected"';} ?>><?= $row['className'] ?></option>
                                     </label>
                                 </div>
                             </li>
@@ -56,7 +58,7 @@ require_once 'includes/product-crud.inc.php';
                     <label>Typ</label>
                     <select class="form-control" name="type">
                         <?php
-                        $sql = "SELECT DISTINCT ships.shipType, types.typeName FROM ships JOIN types ON (ships.shipType=types.typeID);";
+                        $sql = "SELECT * FROM types";
                         $results = mysqli_query($conn,$sql);
 
                         while ($row = mysqli_fetch_assoc($results)){
@@ -64,7 +66,7 @@ require_once 'includes/product-crud.inc.php';
                             <li class="list-group-item">
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <option value="<?= $row['shipType'] ?>" <?php if($shipType==$row['shipType']){ echo ' selected="selected"';} ?>><?= $row['typeName'] ?></option>
+                                        <option value="<?= $row['typeID'] ?>" <?php if($shipType==$row['typeID']){ echo ' selected="selected"';} ?>><?= $row['typeName'] ?></option>
                                     </label>
                                 </div>
                             </li>
@@ -140,5 +142,5 @@ require_once 'includes/product-crud.inc.php';
 </div>
 
 <?php
-include_once 'footer.php';
+include_once 'footer-adm.php';
 ?>
