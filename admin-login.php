@@ -19,22 +19,18 @@ include_once 'header.php';
             }
             ?>
 
-            <form action="includes/login.inc.php" method="post" class="login-box">
-                <h3>Zaloguj się</h3>
+            <form action="includes/admin-login.inc.php" method="post" class="login-box">
+                <h3>Logowanie do panelu administracyjnego</h3>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">email</label>
-                    <input type="email" name="email" placeholder="email..." required="" minlength="3" maxlength="32" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="exampleInputEmail1">UID</label>
+                    <input type="text" name="eUID" placeholder="login..." required="" minlength="3" maxlength="32" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">hasło</label>
-                    <input type="password" name="pwd" placeholder="hasło..." required="" minlength="8" maxlength="16" class="form-control" id="exampleInputPassword1">
+                    <input type="password" name="epwd" placeholder="hasło..." required="" minlength="8" maxlength="16" class="form-control">
                 </div>
                 <div class="center">
                     <button type="submit" name="submit" class="btn btn-primary btn-outline-danger login-button">zaloguj</button>
-                </div>
-                <div class="pushNavLogReg"></div>
-                <div class="center">
-                    <a class="link" href="admin-login.php">Jesteś pracownikiem? Kliknij tutaj!</a>
                 </div>
             </form>
         </div>
