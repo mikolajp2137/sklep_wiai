@@ -15,6 +15,7 @@ require_once 'includes/types-crud.inc.php';
                     <button type="submit" class="list-group-item list-group-item-action" name="cat-class-adm">Klasy produktów</button>
                     <button type="submit" class="list-group-item list-group-item-action active bg-ffnf-blue" name="types-adm">Kategorie produktów</button>
                     <button type="submit" class="list-group-item list-group-item-action" name="clients-adm">Klienci</button>
+                    <button type="submit" class="list-group-item list-group-item-action" name="upload-main-img">Dodawanie zdjęcia głównego</button>
                     <?php
                     if (isset($_SESSION["employeeUID"])){
                         if($_SESSION["employeeUID"]=='admin'){

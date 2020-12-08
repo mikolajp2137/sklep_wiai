@@ -15,3 +15,6 @@ if (isset($_POST['clients-adm'])){
 if (isset($_POST['employees-adm'])){
     header("location: ../employees-adm.php");
 }
+if (isset($_POST['upload-main-img'])){
+    header("location: ../upload.php");
+}
