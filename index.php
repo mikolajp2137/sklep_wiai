@@ -77,7 +77,12 @@ require "includes/db.inc.php";
                                         <p class="card-text">klasa okrętu: <?= $row['className'] ?></p>
                                         <p class="card-text">typ okrętu: <?= $row['typeName'] ?></p>
                                         <p class="card-text">cena: <?= number_format($row['shipPrice']) ?>zł</p>
-                                        <div class="text-center"><a href="#" class="btn btn-outline-danger">dodaj do koszyka</a></div>
+                                        <div class="text-center">
+                                            <form action="includes/add-to-cart.inc.php" method="post">
+                                                <input type="hidden" name='pid' value="<?= $row['shipID'] ?>">
+                                                <button type="submit" name="add-to-cart"class="btn btn-outline-danger addItemBtn">dodaj do koszyka</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

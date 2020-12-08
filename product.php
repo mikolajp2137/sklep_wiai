@@ -22,17 +22,13 @@ include 'includes/db.inc.php';
                                 <ol class="carousel-indicators">
                                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <img src="'.$row['shipImage'].'" class="d-block w-100  slider" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="images/example.jpeg" class="d-block w-100 slider" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="images/example4k.jpg" class="d-block w-100 slider" alt="...">
+                                        <img src="images/placeholder.png" class="d-block w-100 slider" alt="...">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -57,7 +53,10 @@ include 'includes/db.inc.php';
                             <div class="pushNav"></div>
                             <h4>cena: '.$row['shipPrice'].'zł</h4>
                             <div class="pushNav"></div>
-                            <button type="submit" name="submit" class="btn btn-outline-danger ml-auto" style="width: 300px">dodaj do koszyka</button>
+                            <form action="includes/add-to-cart.inc.php" method="post">
+                                <input type="hidden" name=\'pid\' value="'.$row['shipID'].'">
+                                <button type="submit" name="add-to-cart"class="btn btn-outline-danger addItemBtn">dodaj do koszyka</button>
+                            </form>
                         </div>
                     </div>
                     <div class="pushNavLogReg"></div>

@@ -22,13 +22,11 @@ session_start();
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">koszyk</a>
-            </li>
             <?php
             if (isset($_SESSION["userid"])){
                 echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"includes/logout.inc.php\">wyloguj się</a></li>";
                 echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"profile.php\">profil</a></li>";
+                echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"cart.php\">koszyk</a></li>";
             }else{
                 echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"signup.php\">zarejestruj się</a></li>";
                 echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"login.php\">zaloguj się</a></li>";
